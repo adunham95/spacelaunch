@@ -1,41 +1,79 @@
 <template>
-  <div id="app">
-    <v-app id="example-2" standalone>
-      <v-navigation-drawer persistent light v-model="drawer" overflow>
-        <v-list class="pa-0">
-          <v-list-tile avatar tag="div">
-            <v-list-tile-avatar>
-              <img src="https://randomuser.me/api/portraits/men/85.jpg" />
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title>Space Launch</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
-        <v-list class="pt-0" dense>
-          <v-divider></v-divider>
-          <v-list-tile v-for="route in this.$router.options.routes" :key="route.name">
-            <v-list-tile-action>
-              <v-icon fa>{{ route.icon }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>
-                <router-link :to="route.path">{{ route.name }}</router-link>
-              </v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
-      </v-navigation-drawer>
-      <v-toolbar fixed class="indigo darken-4" dark>
-        <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <v-toolbar-title>Space</v-toolbar-title>
-      </v-toolbar>
-      <main>
-        <v-container fluid>
-          <router-view></router-view>
-        </v-container>
-      </main>
-    </v-app>
+  <div class="app-viewport" id="file-list">
+    <md-sidenav class="md-left md-fixed" ref="sidebar">
+      <md-toolbar class="md-account-header">
+        <md-list class="md-transparent">
+          <md-list-item class="md-avatar-list">
+            <md-avatar class="md-large">
+              <img src="https://placeimg.com/64/64/people/8" alt="People">
+            </md-avatar>
+
+            <span style="flex: 1"></span>
+
+            <md-avatar>
+              <img src="https://placeimg.com/40/40/people/3" alt="People">
+            </md-avatar>
+
+            <md-avatar>
+              <img src="https://placeimg.com/40/40/people/4" alt="People">
+            </md-avatar>
+          </md-list-item>
+
+          <md-list-item>
+            <div class="md-list-text-container">
+              <span>John Doe</span>
+              <span>johndoe@email.com</span>
+            </div>
+
+            <md-button class="md-icon-button md-list-action">
+              <md-icon>arrow_drop_down</md-icon>
+            </md-button>
+          </md-list-item>
+        </md-list>
+      </md-toolbar>
+
+      <md-list>
+        <md-list-item @click="$refs.sidebar.toggle()" class="md-primary">
+          <md-icon>insert_drive_file</md-icon> <span>My files</span>
+        </md-list-item>
+
+        <md-list-item @click="$refs.sidebar.toggle()">
+          <md-icon>people</md-icon> <span>Shared with me</span>
+        </md-list-item>
+
+        <md-list-item @click="$refs.sidebar.toggle()">
+          <md-icon>access_time</md-icon> <span>Recent</span>
+        </md-list-item>
+
+        <md-list-item @click="$refs.sidebar.toggle()">
+          <md-icon>start</md-icon> <span>Starred</span>
+        </md-list-item>
+
+        <md-list-item @click="$refs.sidebar.toggle()">
+          <md-icon>delete</md-icon> <span>Trash</span>
+        </md-list-item>
+      </md-list>
+    </md-sidenav>
+
+    <md-whiteframe md-elevation="3" class="main-toolbar">
+      <md-toolbar class="md-large">
+        <div class="md-toolbar-container">
+          <md-button class="md-icon-button" @click="$refs.sidebar.toggle()">
+            <md-icon md-iconset="fa fa-bars fa-2x"></md-icon>
+          </md-button>
+
+          <span style="flex: 1"></span>
+        </div>
+
+        <div class="md-toolbar-container">
+          <h2 class="md-title">Space Day</h2>
+        </div>
+      </md-toolbar>
+    </md-whiteframe>
+
+    <main class="main-content">
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 
@@ -54,12 +92,5 @@ export default {
 
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body{ margin: 0}
 </style>
