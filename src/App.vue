@@ -49,6 +49,17 @@ export default {
             right: null,
         };
     },
+    methods: {
+        getRecent(count) {
+            this.$http.get(`https://launchlibrary.net/1.1/launch/next/` + count).then(response => {
+                // success callback
+                console.log(response.body.launches);
+                return response.body.launches;
+            }, response => {
+                // error callback
+            });
+        }
+    }
 };
 </script>
 

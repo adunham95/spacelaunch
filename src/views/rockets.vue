@@ -1,24 +1,28 @@
 <template>
     <div id="rockets">
-        <v-toolbar>
-            <v-toolbar-title>Title</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>
-            <v-toolbar-items class="hidden-sm-and-down">
-                <v-btn flat>Link One</v-btn>
-                <v-btn flat>Link Two</v-btn>
-                <v-btn flat>Link Three</v-btn>
-            </v-toolbar-items>
-        </v-toolbar>
+        <rocket-card v-for="rocket in rockets" :rocket="rocket" :id="rocket.id"></rocket-card>
     </div>
 </template>
 
 <script>
+    import RocketCard from "../components/rocketCard";
     export default {
+        components: {RocketCard},
         name: 'rockets',
+        created() {
+            // GET /someUrl
+            this.$http.get('https://launchlibrary.net/1.1/rocket/').then(response => {
+                // success callback
+                this.rockets = response.body.rockets;
+                console.log(this.rockets)
+            }, response => {
+                // error callback
+            });
+        },
         data() {
             return {
                 title: 'rockets',
+                rockets: ''
             };
         },
     };
