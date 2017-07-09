@@ -1,5 +1,14 @@
 <template>
     <div id="rockets">
+        <!--<v-toolbar class="white" floating dense fixed>-->
+            <!--<v-text-field prepend-icon="search" hide-details single-line></v-text-field>-->
+            <!--<v-btn icon>-->
+                <!--<v-icon>my_location</v-icon>-->
+            <!--</v-btn>-->
+            <!--<v-btn icon>-->
+                <!--<v-icon>more_vert</v-icon>-->
+            <!--</v-btn>-->
+        <!--</v-toolbar>-->
         <rocket-card v-for="rocket in rockets" :rocket="rocket" :id="rocket.id"></rocket-card>
     </div>
 </template>
