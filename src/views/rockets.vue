@@ -22,7 +22,7 @@
         name: 'rockets',
         created() {
             // GET /someUrl
-            this.$http.get('https://launchlibrary.net/1.1/rocket/').then(response => {
+            this.$http.get('https://launchlibrary.net/1.1/rocket?limit=200').then(response => {
                 // success callback
                 this.rockets = response.body.rockets;
                 console.log(this.rockets)

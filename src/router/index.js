@@ -7,6 +7,7 @@ import 'vue-awesome/icons';
 // Pages
 import Home from '@/views/home';
 import Rockets from '@/views/rockets';
+import Agency from '@/views/agency';
 
 Vue.use(Router);
 Vue.use(Vuetify);
@@ -24,6 +25,12 @@ export default new Router({
             path: '/rockets',
             name: 'Rockets',
             component: Rockets,
+            icon: 'rocket',
+        },
+        {
+            path: '/agency',
+            name: 'Agencies',
+            component: Agency,
             icon: 'rocket',
         },
     ],
