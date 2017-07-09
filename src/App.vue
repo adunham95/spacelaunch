@@ -31,9 +31,7 @@
         <v-toolbar-title>Space</v-toolbar-title>
       </v-toolbar>
       <main>
-        <v-container fluid>
-          <router-view></router-view>
-        </v-container>
+        <router-view></router-view>
       </main>
     </v-app>
   </div>
@@ -65,4 +63,7 @@ export default {
 
 
 <style>
+  .toolbar--absolute+main, .toolbar--fixed+main {
+    padding-top: 43px !important;
+  }
 </style>
