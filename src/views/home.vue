@@ -6,17 +6,9 @@
 				style="min-height: 0;"
 				grid-list-lg
 			>
-				<v-layout row wrap v-for="launch in launches" :key="launch.name">
+				<v-layout row wrap >
 					<v-flex xs12>
-						<v-card class="blue-grey darken-2 white--text">
-							<v-card-title primary-title>
-								<div class="headline"> {{ launch.rocket.name }}</div>
-								<div>{{ launch.missions[0].description }}</div>
-							</v-card-title>
-							<v-card-actions>
-								<v-btn flat dark :href="launch.vidURLs[0]">Watch</v-btn>
-							</v-card-actions>
-						</v-card>
+						<next-card v-for="launch in launches" :key="launch.id" :launch="launch"></next-card>
 					</v-flex>
 				</v-layout>
 			</v-container>
@@ -25,11 +17,13 @@
 </template>
 
 <script>
+    import NextCard from "../components/nextCard";
     export default {
+        components: {NextCard},
         name: 'home',
 		created() {
 			// GET /someUrl
-			this.$http.get('https://launchlibrary.net/1.1/launch/next/5').then(response => {
+			this.$http.get('https://launchlibrary.net/1.2/launch?next=5&mode=summary').then(response => {
 				// success callback
 				this.launches = response.body.launches;
 				console.log(this.launches)
