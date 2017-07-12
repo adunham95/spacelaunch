@@ -9,7 +9,7 @@ export default {
 
     getNext(context, number) {
 
-        return context.$http.get( url + 'launch?next=' + number + '&mode=summary').then(response => {
+        return context.$http.get( url + 'launch?next=' + number + '&mode=verbose').then(response => {
             // success callback
             console.log('NEXT API Callback');
             console.log(response.body.launches);
@@ -45,8 +45,16 @@ export default {
         });
     },
 
-    setLocalStoreage(context) {
+    getSingleLaunch( context, id) {
 
+        return context.$http.get( url + 'launch?id=' + id + '&mode=verbose').then(response => {
+            // success callback
+            console.log('SINGLE LAUNCH API Callback');
+            console.log(response.body.launches);
+            return response.body.launches
+        }, response => {
+            // error callback
+        });
     }
 
 

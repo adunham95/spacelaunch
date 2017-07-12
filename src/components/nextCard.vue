@@ -10,15 +10,37 @@
             <v-btn block secondary dark @click.native.stop="dialog = true">Read More</v-btn>
         </v-card>
 
-        <launch-dialog :launch=launch :dialogSet=dialog></launch-dialog>
+        <v-dialog v-model="dialog" fullscreen lazy transition="dialog-bottom-transition" :overlay=true>
+            <v-card>
+                <v-toolbar dark class="primary">
+                    <v-btn icon @click.native="dialog = false" dark>
+                        <v-icon>close</v-icon>
+                    </v-btn>
+                    <v-toolbar-title>{{ launch.name }} </v-toolbar-title>
+                    <v-spacer></v-spacer>
+                    <v-card>
+                    <!--<v-card-media :src="launchData.rocket.imageURL" height="200px">-->
+                    <!--</v-card-media>-->
+                    <v-card-title primary-title>
+                    <div>
+                    <h3 class="headline mb-0">Kangaroo Valley Safari</h3>
+                    <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
+                    </div>
+                    </v-card-title>
+                    <v-card-actions>
+                    <v-btn flat class="orange--text">Share</v-btn>
+                    <v-btn flat class="orange--text">Explore</v-btn>
+                    </v-card-actions>
+                    </v-card>
+                </v-toolbar>
+            </v-card>
+        </v-dialog>
 
     </div>
 </template>
 
 <script>
-    import LaunchDialog from "./launchDialog";
     export default {
-        components: {LaunchDialog},
         name: 'nextCard',
         props: ['launch'],
         mounted() {

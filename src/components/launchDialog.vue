@@ -1,11 +1,11 @@
 <template>
-    <v-dialog v-model="dialog" fullscreen transition="dialog-bottom-transition" :overlay=true>
+    <v-dialog v-model="dialog" fullscreen lazy transition="dialog-bottom-transition" :overlay=true>
         <v-card>
             <v-toolbar dark class="primary">
                 <v-btn icon @click.native="dialog = false" dark>
                     <v-icon>close</v-icon>
                 </v-btn>
-                <v-toolbar-title>{{ launchData.name }} </v-toolbar-title>
+                <v-toolbar-title>{{ launch.name }} </v-toolbar-title>
                 <v-spacer></v-spacer>
                 <!--<v-card>-->
                     <!--&lt;!&ndash;<v-card-media :src="launchData.rocket.imageURL" height="200px">&ndash;&gt;-->
@@ -27,25 +27,25 @@
 </template>
 
 <script>
+    import api from '../api'
     export default {
         name: 'launchDialog',
         props: ['launch', 'dialogSet'],
-        computed: {
-            launchData: function () {
-                this.$http.get('https://launchlibrary.net/1.2/launch?id=' + this.launch.id + '&mode=verbose').then(response => {
-                    // success callback
-                    console.log(response.body.launches);
-                    console.log(response.body.launches.name);
-                    return response.body.launches;
-                }, response => {
-                    // error callback
-                });
-            },
-        },
+//        mounted: {
+//            launchData: function () {
+//
+//                api.getSingleLaunch(this, this.launch.id).then(response => {
+//                    // success callback
+//                    return response;
+//                }, response => {
+//                    // error callback
+//                });
+//            },
+//        },
         data() {
             return {
                 dialog: false,
-                title: 'launchDialog'
+                title: 'launchDialog',
             };
         },
     };
