@@ -25,7 +25,7 @@
 		created() {
 			api.getNext(this, 5).then(response => {
                 // success callback
-                console.log(response);
+                this.launches = response;
             }, response => {
                 // error callback
             });

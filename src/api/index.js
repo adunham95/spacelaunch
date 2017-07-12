@@ -9,21 +9,24 @@ export default {
 
     getNext(context, number) {
 
-        context.$http.get( url + 'launch?next=' + number + '&mode=summary').then(response => {
+        return context.$http.get( url + 'launch?next=' + number + '&mode=summary').then(response => {
             // success callback
+            console.log('NEXT API Callback');
             console.log(response.body.launches);
             return response.body.launches
         }, response => {
             // error callback
         });
+
     },
 
     getRocket(context, number) {
 
-        context.$http.get( url + 'rocket' + number + '&mode=summary').then(response => {
+        return context.$http.get( url + 'rocket?limit=' + number + '&mode=summary').then(response => {
             // success callback
-            console.log(response.body.launches);
-            return response.body.launches
+            console.log('ROCKET API Callback');
+            console.log(response.body.rockets);
+            return response.body.rockets
         }, response => {
             // error callback
         });
@@ -32,14 +35,19 @@ export default {
 
     getAgency(context, number) {
 
-        context.$http.get( url + 'agency' + number + '&mode=summary').then(response => {
+        return context.$http.get( url + 'agency?limit=' + number + '&mode=summary').then(response => {
             // success callback
-            console.log(response.body.launches);
-            return response.body.launches
+            console.log('NEXT API Callback');
+            console.log(response.body.agencies);
+            return response.body.agencies
         }, response => {
             // error callback
         });
     },
+
+    setLocalStoreage(context) {
+
+    }
 
 
 }

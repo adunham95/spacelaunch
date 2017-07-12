@@ -8,19 +8,28 @@
 
 <script>
     import RocketCard from "../components/rocketCard";
+    import api from '../api'
     export default {
         components: {RocketCard},
         name: 'rockets',
         created() {
-            // GET /someUrl
-//            this.$http.get('https://launchlibrary.net/1.2/rocket?limit=200').then(response => {
-            this.$http.get('https://launchlibrary.net/1.2/rocket?limit=5&mode=summary').then(response => {
+
+            api.getRocket(this, 5, 'rockets').then(response => {
                 // success callback
-                this.rockets = response.body.rockets;
-                console.log(this.rockets)
+                this.rockets = response;
             }, response => {
                 // error callback
             });
+
+//            // GET /someUrl
+////            this.$http.get('https://launchlibrary.net/1.2/rocket?limit=200').then(response => {
+//            this.$http.get('https://launchlibrary.net/1.2/rocket?limit=5&mode=summary').then(response => {
+//                // success callback
+//                this.rockets = response.body.rockets;
+//                console.log(this.rockets)
+//            }, response => {
+//                // error callback
+//            });
         },
         data() {
             return {
