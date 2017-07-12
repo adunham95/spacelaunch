@@ -3,7 +3,7 @@
         <v-card class="rocketCard">
             <v-card-title class="blue white--text">
                 <span class="headline">{{ rocket.name }}</span>
-                <v-spacer></v-spacer>
+                <router-link :to="{ name: 'Single Rockets', params: { id: rocket.id }}">/rocket/ {{rocket.id }} </router-link>
             </v-card-title>
             <!--<v-card-text>Text</v-card-text>-->
         </v-card>
@@ -14,17 +14,6 @@
     export default {
         name: 'rocketCard',
         props: ['rocket'],
-//        created() {
-//            // GET /someUrl
-//
-//            this.$http.get(`https://launchlibrary.net/1.2/agency/` + this.rocket.family.agencies).then(response => {
-//                // success callback
-//                this.agency = response.body;
-//                console.log(this.agency)
-//            }, response => {
-//                // error callback
-//            });
-//        },
         data() {
             return {
                 title: 'rocketCard',

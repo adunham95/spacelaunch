@@ -10,6 +10,7 @@ import VueLocalStorage from 'vue-localstorage';
 import Home from '@/views/home';
 import Rockets from '@/views/rockets';
 import Agency from '@/views/agency';
+import SingleRocket from '@/views/singleRocket';
 
 Vue.use(Router);
 Vue.use(Vuetify);
@@ -31,10 +32,16 @@ export default new Router({
             icon: 'rocket',
         },
         {
+            path: '/rockets/:id',
+            name: 'Single Rockets',
+            component: SingleRocket,
+            icon: 'rocket',
+        },
+        {
             path: '/agency',
             name: 'Agencies',
             component: Agency,
             icon: 'rocket',
-        },
+        }
     ],
 });
