@@ -18,18 +18,17 @@
 
 <script>
     import NextCard from "../components/nextCard";
+    import api from '../api'
     export default {
         components: {NextCard},
         name: 'home',
 		created() {
-			// GET /someUrl
-			this.$http.get('https://launchlibrary.net/1.2/launch?next=5&mode=summary').then(response => {
-				// success callback
-				this.launches = response.body.launches;
-				console.log(this.launches)
-			}, response => {
-				// error callback
-			});
+			api.getNext(this, 5).then(response => {
+                // success callback
+                console.log(response);
+            }, response => {
+                // error callback
+            });
 		},
         data() {
             return {
