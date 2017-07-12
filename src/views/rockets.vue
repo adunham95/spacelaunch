@@ -20,16 +20,6 @@
             }, response => {
                 // error callback
             });
-
-//            // GET /someUrl
-////            this.$http.get('https://launchlibrary.net/1.2/rocket?limit=200').then(response => {
-//            this.$http.get('https://launchlibrary.net/1.2/rocket?limit=5&mode=summary').then(response => {
-//                // success callback
-//                this.rockets = response.body.rockets;
-//                console.log(this.rockets)
-//            }, response => {
-//                // error callback
-//            });
         },
         data() {
             return {

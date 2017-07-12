@@ -55,6 +55,18 @@ export default {
         }, response => {
             // error callback
         });
+    },
+
+    getSingleRocket( context, id) {
+
+        return context.$http.get( url + 'rocket?id=' + id + '&mode=verbose').then(response => {
+            // success callback
+            console.log('SINGLE ROCKET API Callback');
+            console.log(response.body.rockets);
+            return response.body.rockets
+        }, response => {
+            // error callback
+        });
     }
 
 
