@@ -1,7 +1,7 @@
 <template>
     <div id="rockets">
         <v-container>
-            <rocket-card v-for="rocket in rockets" :rocket="rocket" :id="rocket.id"></rocket-card>
+            <rocket-card v-for="rocket in rockets" :rocket="rocket" :id="rocket.id" :key="rocket.id"></rocket-card>
         </v-container>
     </div>
 </template>

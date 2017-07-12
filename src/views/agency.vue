@@ -1,7 +1,7 @@
 <template>
     <div id="agency">
         <v-container>
-            <agency-card  v-for="agency in agencies" :agency="agency" :id="agency.id"></agency-card>
+            <agency-card  v-for="agency in agencies" :agency="agency" :key="agency.id" :id="agency.id"></agency-card>
         </v-container>
     </div>
 </template>
