@@ -3,6 +3,8 @@ import Vuetify from 'vuetify';
 import VueResource from 'vue-resource';
 import Router from 'vue-router';
 import 'vue-awesome/icons';
+import VueLocalStorage from 'vue-localstorage';
+
 
 // Pages
 import Home from '@/views/home';
@@ -12,6 +14,7 @@ import Agency from '@/views/agency';
 Vue.use(Router);
 Vue.use(Vuetify);
 Vue.use(VueResource);
+Vue.use(VueLocalStorage);
 
 export default new Router({
     routes: [
