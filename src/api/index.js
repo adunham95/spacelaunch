@@ -67,6 +67,18 @@ export default {
         }, response => {
             // error callback
         });
+    },
+
+    getSingleAgency( context, id) {
+
+        return context.$http.get( url + 'agency?id=' + id + '&mode=verbose').then(response => {
+            // success callback
+            console.log('SINGLE AGENCY API Callback');
+            console.log(response.body.agencies);
+            return response.body.agencies
+        }, response => {
+            // error callback
+        });
     }
 
 
