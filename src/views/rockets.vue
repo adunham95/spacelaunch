@@ -1,7 +1,10 @@
 <template>
     <div id="rockets">
         <v-container>
-            <rocket-card v-for="rocket in rockets" :rocket="rocket" :id="rocket.id" :key="rocket.id"></rocket-card>
+            <v-list two-line>
+                <rocket-card v-for="rocket in rockets" :rocket="rocket" :id="rocket.id" :key="rocket.id"></rocket-card>
+            </v-list>
+
         </v-container>
     </div>
 </template>
