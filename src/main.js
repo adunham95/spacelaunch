@@ -3,8 +3,10 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
+import VueLocalStorage from 'vue-localstorage';
 
 Vue.config.productionTip = false;
+Vue.use(VueLocalStorage);
 
 /* eslint-disable no-new */
 new Vue({
@@ -12,4 +14,18 @@ new Vue({
     router,
     template: '<App/>',
     components: { App },
+    localStorage: {
+        cacheBool: {
+            type: Boolean
+        },
+        eventTypes: {
+            type: Object,
+        },
+        agencyTypes: {
+            type: Object,
+        },
+        missionTypes: {
+            type: Object,
+        },
+    }
 });
