@@ -29,7 +29,9 @@
             }, response => {
                 // error callback
             });
-			api.checkCache(this)
+		},
+		mounted() {
+            api.checkCache(this)
 		},
         data() {
             return {

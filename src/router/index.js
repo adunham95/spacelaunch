@@ -4,6 +4,7 @@ import VueResource from 'vue-resource';
 import Router from 'vue-router';
 import 'vue-awesome/icons';
 import VueLocalStorage from 'vue-localstorage';
+import VueSession from 'vue-session';
 
 
 // Pages
@@ -18,6 +19,7 @@ Vue.use(Router);
 Vue.use(Vuetify);
 Vue.use(VueResource);
 Vue.use(VueLocalStorage);
+Vue.use(VueSession);
 
 export default new Router({
     routes: [
