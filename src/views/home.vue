@@ -29,54 +29,15 @@
             }, response => {
                 // error callback
             });
-			this.checkCache()
+			api.checkCache(this)
 		},
         data() {
             return {
                 title: 'home',
 				launches: '',
-				eventType: '',
-				agencyType: '',
-				missionType: ''
             };
         },
-        methods: {
-            checkCache: function () {
-                let check = this.$localStorage.get('cacheBool');
-				console.log(check);
-				if ( check === true){
-					console.log("Already retrieved cache");
-				}
-				else {
-                    console.log('Retrieveing new data');
-                    this.cachingNew();
-				}
-            },
-            cachingNew: function () {
-                api.getEventType(this).then(response => {
-                    // success callback
-                    this.$localStorage.set('eventTypes', response);
-                }, response => {
-                    // error callback
-                });
-                api.getAgencyTypes(this).then(response => {
-                    // success callback
-                    this.$localStorage.set('agencyTypes', response);
-                }, response => {
-                    // error callback
-                });
-                api.getMissionTypes(this).then(response => {
-                    // success callback
-                    this.$localStorage.set('missionTypes', response);
-                }, response => {
-                    // error callback
-                });
 
-                //Sets the cache to true to set the cached data
-                this.$localStorage.set('cacheBool', true)
-
-            }
-		}
     };
 </script>
 

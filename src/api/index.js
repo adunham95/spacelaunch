@@ -4,6 +4,7 @@
 
 // URL and endpoint constants
 const url = 'https://launchlibrary.net/1.2/';
+const cacheVersion = 'v1.2.1';
 
 export default {
 
@@ -110,6 +111,58 @@ export default {
         }, response => {
             // error callback
         });
+    },
+
+    getLauchStatus(context) {
+        return context.$http.get( url + 'launchstatus').then(response => {
+            // success callback
+            console.log('LAUNCH TYPES API Callback');
+            console.log(response.body.types);
+            return response.body.types
+        }, response => {
+            // error callback
+        });
+    },
+
+
+    // CACHE
+    checkCache: function (context) {
+        let check = context.$localStorage.get('cacheString');
+        console.log('Current cache version = ' + check);
+        if ( check === cacheVersion){
+            console.log("Already retrieved cache");
+        }
+        else {
+            console.log('Retrieveing new data');
+            this.getEventType(context).then(response => {
+                // success callback
+                context.$localStorage.set('eventTypes', response);
+            }, response => {
+                // error callback
+            });
+            this.getAgencyTypes(context).then(response => {
+                // success callback
+                context.$localStorage.set('agencyTypes', response);
+            }, response => {
+                // error callback
+            });
+            this.getMissionTypes(context).then(response => {
+                // success callback
+                context.$localStorage.set('missionTypes', response);
+            }, response => {
+                // error callback
+            });
+            this.getLauchStatus(context).then(response => {
+                // success callback
+                context.$localStorage.set('launchstatus', response);
+            }, response => {
+                // error callback
+            });
+
+            //Sets the cache version
+            context.$localStorage.set('cacheString', cacheVersion);
+            console.log('Upgraded Cache')
+        }
     },
 
 }

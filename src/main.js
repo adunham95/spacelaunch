@@ -15,9 +15,7 @@ new Vue({
     template: '<App/>',
     components: { App },
     localStorage: {
-        cacheBool: {
-            type: Boolean
-        },
+        cacheString: '',
         eventTypes: {
             type: Object,
         },
