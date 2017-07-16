@@ -14,7 +14,7 @@
         </v-list>
         <v-list class="pt-0" dense>
           <v-divider></v-divider>
-          <v-list-tile v-for="route in this.$router.options.routes" :key="route.name">
+          <v-list-tile v-for="route in routing" :key="route.name">
             <v-list-tile-action>
               <v-icon fa>{{ route.icon }}</v-icon>
             </v-list-tile-action>
@@ -45,6 +45,23 @@ export default {
             drawer: true,
             mini: false,
             right: null,
+            routing: [
+                {
+                    path: '/',
+                    name: 'Mission Control',
+                    icon: 'dashboard',
+                },
+                {
+                    path: '/rockets',
+                    name: 'Rockets',
+                    icon: 'rocket',
+                },
+                {
+                    path: '/agency',
+                    name: 'Agencies',
+                    icon: 'rocket',
+                }
+            ],
         };
     }
 };
