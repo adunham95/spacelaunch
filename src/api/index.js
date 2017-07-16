@@ -99,8 +99,8 @@ export default {
             // error callback
         });
     },
-    // MISSION API CALLS
 
+    // MISSION API CALLS
     getMissionTypes(context) {
         return context.$http.get( url + 'missiontype').then(response => {
             // success callback

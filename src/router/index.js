@@ -11,6 +11,8 @@ import Home from '@/views/home';
 import Rockets from '@/views/rockets';
 import Agency from '@/views/agency';
 import SingleRocket from '@/views/singleRocket';
+import SingleMission from '@/views/singleMission'
+import SingleLaunch from '@/views/singleLaunch'
 
 Vue.use(Router);
 Vue.use(Vuetify);
@@ -23,6 +25,18 @@ export default new Router({
             path: '/',
             name: 'Mission Control',
             component: Home,
+            icon: 'dashboard',
+        },
+        {
+            path: '/mission/:id',
+            name: 'Single Mission',
+            component: SingleMission,
+            icon: 'dashboard',
+        },
+        {
+            path: '/launch/:id',
+            name: 'Single Launch',
+            component: SingleLaunch,
             icon: 'dashboard',
         },
         {

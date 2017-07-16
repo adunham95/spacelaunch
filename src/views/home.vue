@@ -8,7 +8,7 @@
 			>
 				<v-layout row wrap >
 					<v-flex xs12>
-						<!--<next-card v-for="launch in launches" :key="launch.id" :launch="launch"></next-card>-->
+						<next-card v-for="launch in launches" :key="launch.id" :launch="launch"></next-card>
 					</v-flex>
 				</v-layout>
 			</v-container>
