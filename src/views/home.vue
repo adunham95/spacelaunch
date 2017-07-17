@@ -31,7 +31,8 @@
             });
 		},
 		mounted() {
-            api.checkCache(this)
+            api.checkCache(this);
+			api.setStorage(this);
 		},
         data() {
             return {

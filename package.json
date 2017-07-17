@@ -14,7 +14,9 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "fast-deep-equal": "^1.0.0",
     "font-awesome": "^4.7.0",
+    "json-schema-traverse": "^0.3.1",
     "vue": "^2.3.3",
     "vue-awesome": "^2.3.1",
     "vue-idb": "^0.1.2",

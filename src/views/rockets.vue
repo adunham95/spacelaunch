@@ -17,12 +17,20 @@
         name: 'rockets',
         created() {
 
-            api.getRocket(this, 5, 'rockets').then(response => {
+            window.sessionStorage.getItem('rockets').then(response => {
                 // success callback
-                this.rockets = response;
+                console.log(response)
+//                this.rockets = response;
             }, response => {
                 // error callback
             });
+
+//            api.getRocket(this, 5, 'rockets').then(response => {
+//                // success callback
+//                this.rockets = response;
+//            }, response => {
+//                // error callback
+//            });
         },
         data() {
             return {

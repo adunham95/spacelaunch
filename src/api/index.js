@@ -72,7 +72,7 @@ export default {
 
         return context.$http.get( url + 'agency?limit=' + number + '&mode=summary').then(response => {
             // success callback
-            console.log('NEXT API Callback');
+            console.log('AGENCY API Callback');
             console.log(response.body.agencies);
             return response.body.agencies
         }, response => {
@@ -164,5 +164,24 @@ export default {
             console.log('Upgraded Cache')
         }
     },
+
+    //SESSION STORAGE
+    setStorage: function (context) {
+        this.getRocket(context, 5).then(response => {
+            // success callback
+            console.log('SESSION STOREAGE ROCKETS')
+            console.log(response)
+            window.sessionStorage.setItem('rockets', response);
+        }, response => {
+            // error callback
+        });
+        this.getAgency(context, 5).then(response => {
+            // success callback
+            window.sessionStorage.setItem('agencies', response);
+        }, response => {
+            // error callback
+        });
+
+    }
 
 }
